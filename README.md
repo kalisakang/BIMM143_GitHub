@@ -7,4 +7,8 @@ My classwork for BIMM143 SP24 at UC San Diego.
 - Class 8 [Unsupervised learning breast cancer mini-project](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class08/Class08.pdf)
 - Class 9 [Halloween candy mini-project](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class09/Class09.pdf)
 - Class 10 [Structural bioinformatics](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class10/Class10.pdf)
+- Class 11 [Genome informatics](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class11/Class11.pdf)
+- Class 13 [Transcriptomics and analysis of RNA-Seq data](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class13/Class13.pdf)
+- Class 14 [RNA-Seq analysis mini-project](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class14/Class14.pdf)
+
 
