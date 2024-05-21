@@ -1,0 +1,206 @@
+---
+title: "Class10"
+author: Kalisa Kang (PID A16741690)
+format: pdf
+---
+
+## What is in the PDB database?
+
+The main repository of biomolecular structure info is the PDB < www.rcsb.org >.
+
+Let's see what this database contains:
+
+```{r}
+stats <- read.csv("Data Export Summary.csv", row.names=1)
+stats
+```
+
+> Q1: What percentage of structures in the PDB are solved by X-Ray and Electron Microscopy.
+
+```{r}
+as.numeric((stats$X.ray))
+```
+
+We need to get rid of the commas. Can you find a function to do this?
+`gsub()` can be used. The g stands for global and sub stands for substitution (ie substitute all). 
+
+sub(pattern, replacement, x) but they're still around quotes meaning they're characters, so use `as.numeric()` to make them numbers we can do math on.
+
+```{r}
+x <- stats$X.ray
+sum( as.numeric(gsub(",", "", x)) )
+```
+
+Apply to all columns now by turning the previous code into a function: use `apply()` to work on the entire table of data.
+
+```{r}
+sumcomma <- function(x) {
+  sum( as.numeric(gsub(",", "", x)) )
+}
+
+sumcomma(stats$X.ray)
+```
+
+```{r}
+sumcomma(stats$Total)
+```
+
+
+```{r}
+apply(stats, 2, sumcomma) / sumcomma(stats$Total)
+```
+84.13% of PDB structures are solved by X-ray and 9.21% are solved by EM.
+
+```{r}
+n.total <- sumcomma(stats$Total)
+n.total
+```
+
+```{r}
+sumcomma(stats$EM)
+```
+
+```{r}
+apply(stats, 2, sumcomma)
+```
+
+> Q2: What proportion of structures in the PDB are protein?
+
+```{r}
+n.protein <- sumcomma(stats[1, "Total"])
+n.protein
+```
+
+```{r}
+n.protein/n.total
+```
+
+86.59% of structures in the PDB are protein.
+
+In UniProt, there are 248,805,733 entries, which compared to the PDB protein entries (189750), means that there are only ~7% of known sequences with a known structure.
+
+> Q3: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?
+
+
+## Visualizing the HIV-1 protease structure
+
+Mol* ("mol-star") viewer is now ubiquitous. The homepage link is here: https://molstar.org/viewer/ 
+
+I want to insert my image from Mol* here.
+
+![My first molecular image](1HSG.png)
+
+
+> Q4: Water molecules normally have 3 atoms. Why do we see just one atom per water molecule in this structure?
+
+Hydrogen is not shown because the atom is smaller than the resolution level.
+
+> Q5: There is a critical “conserved” water molecule in the binding site. Can you identify this water molecule? What residue number does this water molecule have
+
+The water molecule has 308 residue number.
+
+![](1HSG_Asp25_H2O.png)
+
+## Working with bio3d package.
+
+```{r}
+library(bio3d)
+```
+
+```{r}
+pdb <- read.pdb("1hsg")
+pdb
+```
+
+```{r}
+head(pdb$atom)
+```
+
+```{r}
+pdbseq(pdb)[25]
+```
+
+## Predicting functional motions of a single structure
+
+We can do a bioinformatics prediction of functional motions (i.e., flexibility/dynamics):
+
+```{r}
+pdb <- read.pdb("6s36")
+pdb
+```
+
+```{r}
+m <- nma(pdb)
+plot(m)
+# Normal mode analysis
+```
+
+```{r}
+mktrj(m, file="adk_m7.pdb")
+```
+
+
+# Comparative Analysis of Protein Structures
+
+Here we will work through a complete pipeline of analyses for a given protein family starting from one single database ID for a member of this family, all the way to a deeper understanding of structure, dynamics, and function.
+
+```{r}
+library(bio3d)
+```
+
+
+```{r}
+id <- "1AKE_A"
+
+aa <- get.seq(id)
+aa
+```
+
+```{r}
+b <- blast.pdb(aa)
+```
+
+```{r}
+hits <- NULL
+hits$pdb.id <- c('1AKE_A','6S36_A','6RZE_A','3HPR_A','1E4V_A','5EJE_A','1E4Y_A','3X2S_A','6HAP_A','6HAM_A','4K46_A','3GMT_A','4PZL_A')
+```
+
+
+```{r}
+files <- get.pdb(hits$pdb.id, path="pdbs", split=TRUE, gzip=TRUE)
+```
+
+```{r}
+pdbs <- pdbaln(files, fit = TRUE, exefile="msa")
+```
+
+Print out the alignment 
+```{r}
+pdbs
+```
+
+```{r}
+# Perform PCA
+pc.xray <- pca(pdbs)
+plot(pc.xray)
+```
+
+```{r}
+# Visualize first principal component
+pc1 <- mktrj(pc.xray, pc=1, file="pc_1.pdb")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+---
+title: "Class 11"
+author: "Kalisa Kang (PID A16741690)"
+format: pdf
+---
+
+# Section 1. Proportion of G/G in a population
+
+Downloaded a CSV file from Ensemble < https://useast.ensembl.org/Homo_sapiens/Variation/Sample?db=core;r=17:39960101-40090102;v=rs8067378;vdb=variation;vf=959672880#373531_tablePanel >
+
+Here we read this CSV file
+
+```{r}
+mxl <- read.csv("373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+head(mxl)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.) / nrow(mxl) *100
+```
+
+Now let's look at a different population. I picked the GBR (Great Britain) population.
+
+```{r}
+gbr <- read.csv("373522-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378 (1).csv")
+head(gbr)
+gbr
+```
+
+Find proportion of G|G
+
+```{r}
+round(table(gbr$Genotype..forward.strand.) / nrow(gbr) * 100, 2)
+```
+
+This variant that is associated with childhood asthma is more frequent in the GBR population than the MXL population.
+
+Let's now dig into this further.
+
+# Section 4: Population Scale Analysis
+
+How many samples do we have?
+
+```{r}
+expr <- read.table("rs8067378_ENSG00000172057.6.txt")
+head(expr)
+```
+
+```{r}
+nrow(expr)
+```
+
+```{r}
+table(expr$geno)
+```
+
+```{r}
+library(ggplot2)
+
+```
+
+Let's make a boxplot
+
+```{r}
+ggplot(expr) + aes(x=geno, y=exp, fill=geno) +
+  geom_boxplot(notch=TRUE) + stat_summary()
+```
+
+
+> Q13: Read this file into R and determine the sample size for each genotype and their corresponding median expression levels for each of these genotypes. 
+
+```{r}
+table(expr$geno)
+```
+
+The sample size for A|A is 108, A|G is 233, and G|G is 121.
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+medians <- expr %>%
+  group_by(geno) %>%
+  summarize(median_exp = median(exp))
+medians
+```
+
+The median expression level for A|A is 31.25, A|G is 25.06, and G|G is 20.07.
+
+> Q14: Generate a boxplot with a box per genotype, what could you infer from the relative expression value between A/A and G/G displayed in this plot? Does the SNP effect the expression of ORMDL3?
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(expr) + aes(x=geno, y=exp, fill=geno) +
+  geom_boxplot(notch=TRUE)
+```
+
+Based on the box plot without any statistical analyses, the expression levels of G|G are lower than that of A|A. The SNP affects expression of ORMDL3.
+
+
+
+
+
+
+
+
