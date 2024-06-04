@@ -13,7 +13,7 @@ My classwork for [BIMM143 Spring 2024](https://bioboot.github.io/bimm143_S24/) a
 
 - **Class 10** [Structural bioinformatics](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class10/Class10.pdf)
 
-- **Class 11** [Genome informatics](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class11/Class11.pdf)
+- **Class 11** [Genome informatics](Class11/Class11.md)
 
 - **Class 13** [Transcriptomics and analysis of RNA-Seq data](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class13/Class13.pdf)
 
