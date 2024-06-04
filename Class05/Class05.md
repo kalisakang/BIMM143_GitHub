@@ -1,5 +1,5 @@
 # Class 5: Data visualization with ggplot2
-Kalisa Kang (PID: A16741690)
+Kalisa Kang
 
 - [A more complicated scatter plot](#a-more-complicated-scatter-plot)
 - [Exploring the gapminder dataset](#exploring-the-gapminder-dataset)
