@@ -5,7 +5,7 @@ My classwork for [BIMM143 Spring 2024](https://bioboot.github.io/bimm143_S24/) a
 
 - **Class 6** [R functions](Class06/Class06.md)
 
-- **Class 7** [Machine learning](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class07/Class07.pdf)
+- **Class 7** [Machine learning](Class07/Class07.md)
 
 - **Class 8** [Unsupervised learning breast cancer mini-project](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class08/Class08.pdf)
 
