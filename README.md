@@ -3,7 +3,7 @@ My classwork for [BIMM143 Spring 2024](https://bioboot.github.io/bimm143_S24/) a
 
 - **Class 5** [Data visualization with ggplot](Class05/Class05.md)
 
-- **Class 6** [R functions](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class06/Class06.pdf)
+- **Class 6** [R functions](Class06/Class06.md)
 
 - **Class 7** [Machine learning](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class07/Class07.pdf)
 
