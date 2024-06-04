@@ -1,7 +1,7 @@
 # Kalisa Kang - BIMM143 Introduction to Bioinformatics
 My classwork for [BIMM143 Spring 2024](https://bioboot.github.io/bimm143_S24/) at UC San Diego.
 
-- **Class 5** [Data visualization with ggplot](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class05/Class05.pdf)
+- **Class 5** [Data visualization with ggplot](Class05/Class05.md)
 
 - **Class 6** [R functions](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class06/Class06.pdf)
 
