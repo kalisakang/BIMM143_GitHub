@@ -19,8 +19,6 @@ My classwork for [BIMM143 Spring 2024](https://bioboot.github.io/bimm143_S24/) a
 
 - **Class 14** [RNA-Seq analysis mini-project](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class14/Class14.pdf)
 
-- **Class 15** [xxx]()
-
 - **Class 16** [xxx]()
 
 - **Class 17** [xxx]()
