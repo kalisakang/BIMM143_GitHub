@@ -9,7 +9,7 @@ My classwork for [BIMM143 Spring 2024](https://bioboot.github.io/bimm143_S24/) a
 
 - **Class 8** [Unsupervised learning breast cancer mini-project](Class08/Class08.md)
 
-- **Class 9** [Halloween candy mini-project](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class09/Class09.pdf)
+- **Class 9** [Halloween candy mini-project](Class09/Class09.md)
 
 - **Class 10** [Structural bioinformatics](https://github.com/kalisakang/BIMM143_GitHub/blob/main/Class10/Class10.pdf)
 
